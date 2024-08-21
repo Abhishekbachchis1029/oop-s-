@@ -56,11 +56,22 @@ class Mycomplex{
             M.imag=imag*y.real+real*y.imag;
             return M;
         }
+        friend ostream& operator <<(ostream& s,Mycomplex& c);//this the overloading of the <<  output stream for an object
+        friend istream& operator >>(istream& s,Mycomplex& c);//this the overloading of the >> input  stream for an object
 };
+ostream& operator <<(ostream& s,Mycomplex& c){
+    s << "("<<c.real<<","<<c.imag<<")";// this is what i really dont know it kind of uses friend class etc
+    return s ;
+}
+istream& operator >>(istream& s,Mycomplex& c){
+    s>>c.real>>c.imag;
+    return s ;
+}
         int main(){
-            Mycomplex c1(0.0,0.0),c2(2.3,4.5),c3(6.7,9.8),c4,c5,c6,c7,c8,c9,c0,c11;
+            Mycomplex c1(0.0,0.0),c2(2.3,4.5),c3(6.7,9.8),c4,c5,c6,c7,c8,c9,c0,c11,c12;
             c0.display();
             c1.display();
+            cin>>c12;
             c4.additon_of_complex_number(c1,c2);//simple calling of add function
             c5.Multiplication_complex_number(c2,c3);//simple calling of multiplication fuction
             c6=c4.addition_of_complex_number(c5);//overloaded add function 
